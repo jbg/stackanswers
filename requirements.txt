@@ -1,0 +1,3 @@
+flask
+-e git://github.com/drathier/stack-overflow-import#egg=stackoverflow
+dill
