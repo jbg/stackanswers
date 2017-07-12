@@ -17,4 +17,5 @@ def home():
 
 if __name__ == "__main__":
   # Heroku
+  import os
   app.run(host="127.0.0.1", port=int(os.environ.get("PORT")))
