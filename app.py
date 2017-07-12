@@ -14,3 +14,7 @@ app = Flask(__name__)
 def home():
   q = request.args.get("q")
   return render_template("home.html", result=query(q), q=q)
+
+if __name__ == "__main__":
+  # Heroku
+  app.run(host="127.0.0.1", port=int(os.environ.get("PORT")))
