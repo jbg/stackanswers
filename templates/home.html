@@ -4,6 +4,7 @@
     <title>StackAnswers</title>
     <style>
       * { font-family: monospace }
+      #q { width: 300px }
       div { position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%); }
     </style>
   </head>
@@ -11,12 +12,16 @@
     <div>
       <h1>StackAnswers</h1>
       <form action="" method="GET">
-        <input name="q"{% if q %} value="{{ q }}"{% endif %}>
+        <input id="q" name="q"{% if q %} value="{{ q }}"{% endif %}>
         <input type="submit" value="Search">
       </form>
       {% if result %}
         <pre>{{ result.0 }}</pre>
         <p><a href="{{ result.1 }}">{{ result.1 }}</a></p>
+      {% else %}
+        {% if q %}
+          <p>Stack Overflow doesn't know how to do that.</p>
+        {% endif %}
       {% endif %}
     </div>
   </body>

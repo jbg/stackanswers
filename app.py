@@ -8,7 +8,10 @@ def query(q):
   if q is None:
     return None
   q = q.replace(" ", "_")  # TODO better preprocessing
-  return StackOverflowImporter._fetch_code(StackOverflowImporter._fetch_url(q))
+  try:
+    return StackOverflowImporter._fetch_code(StackOverflowImporter._fetch_url(q))
+  except ImportError:
+    return None
 
 
 app = Flask(__name__)
